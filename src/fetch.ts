@@ -1,5 +1,5 @@
 import {APIRequestContext} from '@playwright/test';
- 
+
 type RequestConfig = {
   url: string;
   method: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
@@ -7,7 +7,7 @@ type RequestConfig = {
   params?: {[key: string]: string | number | boolean};
   headers?: {[key: string]: string};
 };
- 
+
 type ResponseConfig<ResponseData = unknown> = {
   data?: ResponseData;
   status: number;
@@ -16,7 +16,7 @@ type ResponseConfig<ResponseData = unknown> = {
     [key: string]: string;
   };
 };
- 
+
 export const fetch = async <ResponseData>(
   request: APIRequestContext,
   requestConfig: RequestConfig,
@@ -27,7 +27,7 @@ export const fetch = async <ResponseData>(
     params: requestConfig.params,
     headers: requestConfig.headers,
   });
- 
+
   const json = await (async () => {
     let result;
     try {
@@ -35,13 +35,13 @@ export const fetch = async <ResponseData>(
     } catch {}
     return result;
   })();
- 
+
   const result: ResponseConfig<ResponseData> = {
     data: json,
     status: response.status(),
     statusText: response.statusText(),
     headers: response.headers(),
   };
- 
+
   return result;
 };
