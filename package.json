@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "codegen": "curl -o api-swagger.json https://api.weather.gov/openapi.json && kubb generate && rm -rf src/gen/schemas && npx prettier --write src/gen",
-    "test": "playwright test",
-    "test:api": "playwright test tests/api",
-    "test:api:smoke": "playwright test tests/api --grep @smoke",
-    "test:api:regression": "playwright test tests/api --grep @regression",
-    "perf:alerts": "artillery run tests/performance/alerts-load.yml",
-    "perf:zones": "artillery run tests/performance/zones-load.yml",
-    "perf:sigmets": "artillery run tests/performance/sigmets-load.yml"
+  "test": "playwright test",
+  "test:api": "playwright test src/tests/api",
+  "test:api:smoke": "playwright test src/tests/api --grep @smoke",
+  "test:api:regression": "playwright test src/tests/api --grep @regression",
+  "test:performance": "npx tsx src/tests/performance/run-tests.ts",
+  "setup:wizard": "npx tsx scripts/setup_wizard.ts",
+  "validate:setup": "npx tsx scripts/validate_setup.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,8 @@
     "@types/react": "^18.2.21",
     "@types/scheduler": "^0.26.0",
     "prettier": "^3.6.2",
-    "scheduler": "^0.27.0"
+    "scheduler": "^0.27.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2"
   }
 }

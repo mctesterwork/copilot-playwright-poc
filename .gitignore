@@ -5,7 +5,8 @@ node_modules/
 /results/
 /playwright-report/
 /blob-report/
+/src/gen/*.ts
 /playwright/.cache/
 /playwright/.auth/
 api-swagger.json
-*.env
+*.env*
