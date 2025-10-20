@@ -1,14 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { getAlerts, getAlertById } from '../../src/api-controller';
-import type { AlertCollectionJsonLd } from '../../src/gen/api-types';
-
-test.use({
-  baseURL: 'https://api.weather.gov',
-  extraHTTPHeaders: {
-    Accept: 'application/ld+json, application/json',
-    'User-Agent': 'playwright-test',
-  },
-});
+import { getAlerts, getAlertById } from '../../api-controller';
+import type { AlertCollectionJsonLd } from '../../gen/api-types';
 
 test.describe('Alerts path-parameter endpoints', () => {
   test('GET /alerts -> pick an id and GET /alerts/{id} (positive)', { tag: ['@alerts', '@path', '@regression'] }, async ({ request }) => {

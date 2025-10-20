@@ -1,0 +1,5 @@
+- /gen/api-types.ts contains the generated types after running kubb with the api definition link
+- /pages directory should contain typescript classes following Page Object Model with playwright's recommended setup, these are used for UI tests
+- /types is for storing other types needed for the project and dependencies, not the generated types for the api
+- api-controller.ts is where all the controller functions are defined, these controller functions are needed to make requests to the different endpoints using the api definition and the generated types as reference
+- fetch.ts is a wrapper of the playwright APIRequestContext so that it can be used by the api controller functions

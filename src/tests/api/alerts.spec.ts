@@ -1,14 +1,7 @@
 import {test, expect, request as playwrightRequest} from '@playwright/test';
-import {getAlerts} from '../../src/api-controller';
-import type {AlertCollectionJsonLd, Alert} from '../../src/gen/api-types';
+import {getAlerts} from '../../api-controller';
+import type {AlertCollectionJsonLd, Alert} from '../../gen/api-types';
 
-test.use({
-  baseURL: 'https://api.weather.gov',
-  extraHTTPHeaders: {
-        'Accept': 'application/ld+json, application/json',
-        'User-Agent': 'playwright-test',
-      }
-})
 test.describe('Alerts API', () => {
   test('GET /alerts returns 200 and a collection', {tag: ['@alerts', '@smoke', '@regression']}, async ({request}) => {
 

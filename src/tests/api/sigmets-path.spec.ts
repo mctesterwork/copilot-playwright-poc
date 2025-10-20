@@ -1,14 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { getSigmets, getSigmetsByATSU, getSigmetsByATSUByDate, getSigmet } from '../../src/api-controller';
-import type { SigmetCollectionGeoJson } from '../../src/gen/api-types';
-
-test.use({
-  baseURL: 'https://api.weather.gov',
-  extraHTTPHeaders: {
-    Accept: 'application/json',
-    'User-Agent': 'playwright-test',
-  },
-});
+import { getSigmets, getSigmetsByATSU, getSigmetsByATSUByDate, getSigmet } from '../../api-controller';
+import type { SigmetCollectionGeoJson } from '../../gen/api-types';
 
 test.describe('SIGMETs path-parameter endpoints', () => {
   test('GET /aviation/sigmets -> find an ATSU and call /aviation/sigmets/{atsu}', { tag: ['@aviation', '@path', '@regression'] }, async ({ request }) => {

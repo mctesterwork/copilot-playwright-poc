@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "codegen": "curl -o api-swagger.json https://api.weather.gov/openapi.json && kubb generate && rm -rf src/gen/schemas && npx prettier --write src/gen",
-     "test": "playwright test",
-     "test:api": "playwright test tests/api",
-     "test:api:smoke": "playwright test tests/api --grep @smoke",
-     "test:api:regression": "playwright test tests/api --grep @regression"
+    "codegen": "curl -o api-swagger.json https://api.weather.gov/openapi.json && kubb generate && rm -rf src/gen/schemas && npx prettier --write src/gen",
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:api:smoke": "playwright test tests/api --grep @smoke",
+    "test:api:regression": "playwright test tests/api --grep @regression"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "@kubb/cli": "^4.1.3",
     "@kubb/core": "^4.1.3",
     "@kubb/plugin-ts": "^4.1.3",

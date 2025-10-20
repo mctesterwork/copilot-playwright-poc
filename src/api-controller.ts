@@ -1,6 +1,6 @@
 import {APIRequestContext} from '@playwright/test';
 import {fetch} from './fetch';
-import type {AlertCollection} from './gen/api-types';
+import type {AlertCollection, Zone} from './gen/api-types';
 import type {SigmetCollectionGeoJson, SigmetQueryQueryParams, ZoneListQueryParams, ZoneCollectionGeoJson} from './gen/api-types';
 
 type AlertsQuery = {
@@ -189,7 +189,7 @@ export async function getZoneByTypeAndId(
   zoneId: string,
   params?: {effective?: string},
 ): Promise<{
-  data?: any;
+  data?: Zone;
   status: number;
   statusText: string;
   headers: {[key: string]: string};

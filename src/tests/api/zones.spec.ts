@@ -1,14 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { getZones } from '../../src/api-controller';
-import type { ZoneCollectionGeoJson } from '../../src/gen/api-types';
-
-test.use({
-  baseURL: 'https://api.weather.gov',
-  extraHTTPHeaders: {
-    Accept: 'application/json',
-    'User-Agent': 'playwright-test',
-  },
-});
+import { getZones } from '../../api-controller';
+import type { ZoneCollectionGeoJson } from '../../gen/api-types';
 
 test.describe('Zones query-parameter endpoints', () => {
   test('GET /zones returns list and respects limit', { tag: ['@zone', '@regression'] }, async ({ request }) => {

@@ -1,14 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { getZones, getZoneByTypeAndId, getZoneForecast, getZoneStations } from '../../src/api-controller';
-import type { ZoneCollectionGeoJson } from '../../src/gen/api-types';
-
-test.use({
-  baseURL: 'https://api.weather.gov',
-  extraHTTPHeaders: {
-    Accept: 'application/json',
-    'User-Agent': 'playwright-test',
-  },
-});
+import { getZones, getZoneByTypeAndId, getZoneForecast, getZoneStations } from '../../api-controller';
+import type { ZoneCollectionGeoJson } from '../../gen/api-types';
 
 test.describe('Zones path-parameter endpoints', () => {
   test('GET /zones -> pick a zone and GET /zones/{type}/{zoneId}', { tag: ['@zone', '@path', '@regression'] }, async ({ request }) => {
@@ -28,6 +20,7 @@ test.describe('Zones path-parameter endpoints', () => {
     expect(single.status).toBeGreaterThanOrEqual(200);
     expect(single.status).toBeLessThan(300);
     expect(single.data).toBeDefined();
+    console.log(single.data);
   });
 
   test('GET /zones/{type}/{zoneId} with non-existent id returns 4xx', { tag: ['@zone', '@path'] }, async ({ request }) => {
