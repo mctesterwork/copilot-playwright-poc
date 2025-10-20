@@ -8,7 +8,10 @@
     "test": "playwright test",
     "test:api": "playwright test tests/api",
     "test:api:smoke": "playwright test tests/api --grep @smoke",
-    "test:api:regression": "playwright test tests/api --grep @regression"
+    "test:api:regression": "playwright test tests/api --grep @regression",
+    "perf:alerts": "artillery run tests/performance/alerts-load.yml",
+    "perf:zones": "artillery run tests/performance/zones-load.yml",
+    "perf:sigmets": "artillery run tests/performance/sigmets-load.yml"
   },
   "keywords": [],
   "author": "",

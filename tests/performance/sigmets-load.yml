@@ -1,0 +1,36 @@
+config:
+  target: "https://api.weather.gov"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+  defaults:
+    headers:
+      Accept: "application/geo+json, application/json, */*"
+      User-Agent: "copilot-playwright-poc-artillery/1.0"
+
+scenarios:
+  - name: "GET /aviation/sigmets - baseline"
+    flow:
+      - get:
+          url: "/aviation/sigmets"
+
+  - name: "GET /aviation/sigmets - with atsu param"
+    flow:
+      - get:
+          url: "/aviation/sigmets"
+          qs:
+            atsu: "KEKA"
+
+  - name: "GET /aviation/sigmets - with date param"
+    flow:
+      - get:
+          url: "/aviation/sigmets"
+          qs:
+            date: "2025-10-17"
+
+  - name: "GET /aviation/sigmets - with sequence (unlikely)"
+    flow:
+      - get:
+          url: "/aviation/sigmets"
+          qs:
+            sequence: "999999999999"
