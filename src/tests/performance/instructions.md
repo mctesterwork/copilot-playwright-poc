@@ -2,11 +2,11 @@
 
 This folder contains simple Artillery scenarios used as smoke/performance checks against the public API (https://api.weather.gov).
 
-Files:
+Files (templates, need to be completed before use):
 
-- `alerts-load.yml` - smoke load against `/alerts` (default: 1 rps x 10s)
-- `zones-load.yml` - smoke load against `/zones` (default: 1 rps x 10s)
-- `sigmets-load.yml` - multiple smoke flows for `/aviation/sigmets` (baseline, atsu, date, sequence)
+- `alerts-load.yml` - smoke load against `/alerts` (default: 1 rps x 10s; currently contains only the `config:` line as a placeholder)
+- `zones-load.yml` - smoke load against `/zones` (default: 1 rps x 10s; currently contains only the `config:` line as a placeholder)
+- `sigmets-load.yml` - multiple smoke flows for `/aviation/sigmets` (baseline, atsu, date, sequence; currently contains only the `config:` line as a placeholder)
 
 Run all scenarios from the repository root with the helper script (recommended):
 

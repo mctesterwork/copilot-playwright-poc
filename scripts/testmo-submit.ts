@@ -26,13 +26,13 @@ async function main() {
     const envToken = process.env.TESTMO_TOKEN;
     const envProject = process.env.TESTMO_PROJECT_ID;
 
-    const token = envToken && envToken.trim() ? envToken.trim() : (await question('Enter your Testmo token: ')).trim();
+    const token = (envToken?.trim() || await question('Enter your Testmo token: ')).trim();
     if (!token) {
       console.error('Testmo token is required');
       process.exit(2);
     }
 
-    const projectId = envProject && envProject.trim() ? envProject.trim() : (await question('Enter your Testmo project ID: ')).trim();
+    const projectId = (envProject?.trim() || await question('Enter your Testmo project ID: ')).trim();
     if (!projectId) {
       console.error('Testmo project id is required');
       process.exit(2);

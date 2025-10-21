@@ -7,13 +7,11 @@ export class SearchPage {
     this.page = page;
     this.queryInput = page.locator('input#query[size="30"]');
   }
-  async goto()
-  {
+  async goto() {
     await this.page.goto('https://www.weather.gov/search/');
   }
 
-  async search(query: string)
-  {
+  async search(query: string) {
     await this.queryInput.fill(query);
     await this.queryInput.press('Enter');
   }

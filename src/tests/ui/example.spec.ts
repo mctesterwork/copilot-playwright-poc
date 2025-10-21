@@ -8,7 +8,7 @@ test.describe('Example UI Test', () => {
         await mainPage.enterGetWeatherLocation(testLocation.state);
         await mainPage.clickGetWeatherButton();
         const weatherTitle = await mainPage.getWeatherLocationTitle();
-        expect(weatherTitle).toContain('More than one location matched your submission')
+        expect(weatherTitle).toContain('More than one location matched your submission');
     });
 
     test('should perform a search and display results', async ({ searchPage }) => {
