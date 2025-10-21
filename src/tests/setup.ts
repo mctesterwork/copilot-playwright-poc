@@ -4,7 +4,7 @@ async function globalSetup() {
   // Minimal placeholder global setup used by Playwright until the interactive
   // setup wizard creates a fully configured setup.ts with auth and env handling.
 
-  const apiBaseUrl = process.env.API_BASE_URL || process.env.npm_config_api_base_url;
+  const apiBaseUrl = process.env.API_BASE_URL;
   if (!apiBaseUrl) {
     console.warn('No API_BASE_URL provided; skipping API health check in globalSetup.');
     return;

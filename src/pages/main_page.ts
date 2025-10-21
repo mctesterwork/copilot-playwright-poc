@@ -28,7 +28,7 @@ export class MainPage {
   }
 
   async getWeatherLocationTitle(): Promise<string[]> {
-    const title = await this.weatherLocationTitle.allTextContents() ?? '';
+    const title = await this.weatherLocationTitle.allTextContents();
     return title;
   }
 
