@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'node:path';
 
 /**
  * Read environment variables from file.
@@ -11,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+dotenv.config({ path: path.resolve(__dirname, '.env.dev') });
 
 export default defineConfig({
   globalSetup: require.resolve('./src/tests/setup'),
